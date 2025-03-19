@@ -1,0 +1,184 @@
+/* Sidebar Header - Align Toggle & Search Icon */
+.nav-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 0.5rem;
+  /* justify-content: space-between; */
+}
+
+/* Hover effect */
+.nav-icon:hover {
+  background: #e0e0e0;
+  transform: scale(1.1);
+}
+
+/* Active state */
+.nav-icon:active {
+  transform: scale(0.95);
+}
+
+/* Search Icon */
+.search-icon {
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+.search-icon:hover {
+  color: #000;
+}
+
+/* Sidebar - Hidden by Default */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -65%; /* Initially Hidden */
+  width: 250px;
+  height: 100vh;
+  padding: 1rem;
+  background: linear-gradient(135deg, #16694a, #34495e);
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: left 0.3s ease-in-out;
+}
+
+/* When Sidebar is Open */
+.sidebar.open {
+  left: 0;
+}
+
+/* Sidebar Links */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  color: white;
+  transition: background 0.3s ease-in-out;
+}
+
+.sidebar li:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  font-size: 1.1rem;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar nav li {
+  margin: 1rem 0;
+}
+
+.sidebar nav li a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: white;
+  transition: color 0.2s;
+}
+
+.sidebar nav li a:hover,
+.sidebar nav li a.active {
+  color: #38b87c;
+}
+
+/* Sidebar Overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+/* Show overlay when sidebar is open */
+.sidebar.open + .sidebar-overlay {
+  display: block;
+}
+
+/* Slide-in Animation */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Left section: toggle button + (optional) search/image icon */
+.sidebar-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Navbar container on the right side */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  margin-left: 80%;
+}
+
+/* 🔹 Responsive Sidebar */
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    width: 220px;
+  }
+
+  .sidebar li a {
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .sidebar li {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 180px;
+  }
+
+  .sidebar li {
+    font-size: 0.85rem;
+  }
+
+  .nav-icon {
+    font-size: 1.2rem;
+  }
+}
