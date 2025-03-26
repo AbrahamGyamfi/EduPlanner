@@ -1,0 +1,174 @@
+/* General Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Calendar Embed */
+.iframe {
+  width: 90%;
+  height: 500px;
+  border: none;
+}
+
+/* Task List */
+.taskContainer {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.taskItem {
+  background: #f5f5f5;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* Add Task Section */
+.addTaskContainer {
+  margin-top: 20px;
+  padding: 10px;
+  background: #eef2f3;
+  border-radius: 5px;
+}
+
+.input {
+  width: 90%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.addButton {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  background-color: #45a049;
+}
+
+.schedule {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.schedule h2 {
+  text-align: center;
+  color: #4a90e2;
+  margin-bottom: 20px;
+}
+
+/* Form styles */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.task-form button {
+  padding: 10px;
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.task-form button:hover {
+  background-color: #357ab8;
+}
+
+/* Error message */
+.error-message {
+  color: #e74c3c;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Task list styles */
+.task-list {
+  margin-top: 20px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.task-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.task-icon.blue {
+  background-color: #4a90e2;
+}
+
+.task p {
+  flex: 1;
+  margin: 0;
+  font-size: 16px;
+}
+
+.task-time {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .schedule {
+    padding: 15px;
+  }
+
+  .task-form input,
+  .task-form button {
+    font-size: 14px;
+  }
+
+  .task p {
+    font-size: 14px;
+  }
+
+  .task-time {
+    font-size: 12px;
+  }
+}
