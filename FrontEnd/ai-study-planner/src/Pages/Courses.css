@@ -202,3 +202,14 @@ button:hover {
   white-space: normal;
   word-break: break-word;
 }
+
+@media (max-width: 768px) {
+  .courses-grid {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .course-card,
+  .add-course-card {
+    width: 100%;
+  }
+}

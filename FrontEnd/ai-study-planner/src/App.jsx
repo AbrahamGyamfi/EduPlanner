@@ -7,6 +7,7 @@ import Courses from "./components/Pages/Courses";
 import Schedule from "./components/Pages/Schedules";
 import Profile from "./components/Pages/Profile";
 import Settings from "./components/Pages/Settings";
+import CourseDetails from "./Pages/CourseDetails"; // Ensure correct import path
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/schedule" element={isAuthenticated ? <Schedule tasks={tasks} setTasks={setTasks} /> : <Navigate to="/" />} />
         <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/" />} />
         <Route path="/settings" element={isAuthenticated ? <Settings /> : <Navigate to="/" />} />
+        <Route path="/course/:courseName" element={<CourseDetails />} />
       </Routes>
     </div>
   );

@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import "./Schedule.css";
 
+// Mock function to simulate adding a task to a calendar
+const addTaskToCalendar = (task) => {
+  console.log(`Task "${task.name}" scheduled on ${task.time} added to the calendar.`);
+};
+
 function Schedule({ tasks, setTasks }) {
   const [newTask, setNewTask] = useState({ name: "", time: "", icon: "blue" });
   const [error, setError] = useState("");
@@ -12,6 +17,7 @@ function Schedule({ tasks, setTasks }) {
       return;
     }
     setTasks([...tasks, newTask]);
+    addTaskToCalendar(newTask); // Add task to the calendar
     setNewTask({ name: "", time: "", icon: "blue" });
     setError(""); // Clear error after successful addition
   };
@@ -41,6 +47,7 @@ function Schedule({ tasks, setTasks }) {
       <div className="task-list">
         {tasks.length === 0 ? (
           <p>No tasks scheduled</p>
+          
         ) : (
           tasks.map((task, index) => (
             <div className="task" key={index}>

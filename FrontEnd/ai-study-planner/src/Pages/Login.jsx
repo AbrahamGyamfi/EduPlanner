@@ -3,6 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 
+// Add this line in your HTML template or at the top of your React app (e.g., in index.html or App.js)
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+
 const Login = ({ onLogin }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
@@ -29,11 +35,8 @@ const Login = ({ onLogin }) => {
 
       // Check for success in the response
       if (response.ok && data.status === "success") {
-        // Store firstname in localStorage
         localStorage.setItem("firstname", data.user.firstname);
-        // Call onLogin if provided
         onLogin?.();
-        // Navigate to dashboard
         navigate("/dashboard");
       } else {
         setError(data.error || "Login failed. Check your credentials.");

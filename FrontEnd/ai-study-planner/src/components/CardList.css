@@ -47,4 +47,31 @@
   .in-progress {
     color: blue;
   }
-  
+
+  /* Card Styling with Background Image */
+  .card {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 220px;
+    height: 150px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 128, 0.2);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.2s;
+    padding: 10px;
+  }
+
+  .card-content {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+  }

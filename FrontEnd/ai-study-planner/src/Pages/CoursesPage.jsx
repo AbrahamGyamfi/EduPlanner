@@ -11,7 +11,6 @@ const CoursesPage = ({ courses = [] }) => {
     }
     return courses.map(c => ({ ...c, docCount: c.docCount || 0 }));
   });
-  const [selectedCourseIndex, setSelectedCourseIndex] = useState(null);
   const inputRef = useRef(null);
 
   const icons = ["fas fa-book", "fas fa-chart-bar", "fas fa-laptop-code"];
@@ -41,17 +40,16 @@ const CoursesPage = ({ courses = [] }) => {
   };
 
   function handleCourseCardClick(index) {
-    alert(`Please upload slides for: ${courseList[index].name}`);
-    setSelectedCourseIndex(index);
-    inputRef.current?.click();
+    const course = courseList[index];
+    navigate(`/course/${encodeURIComponent(course.name)}`); // Ensure correct navigation
   }
 
   function handleFileUpload(event) {
-    if (event.target.files && event.target.files[0] && selectedCourseIndex != null) {
+    if (event.target.files && event.target.files[0]) {
       alert(`You chose file: ${event.target.files[0].name}`);
       setCourseList(prev => {
         const updated = [...prev];
-        updated[selectedCourseIndex].docCount += 1;
+        updated[0].docCount += 1; // Adjust logic if necessary
         return updated;
       });
     }
@@ -59,16 +57,19 @@ const CoursesPage = ({ courses = [] }) => {
 
   return (
     <div className="courses-page1">
-      <h2 className="heading">
+      <h1 className="page-title">My Courses</h1>
+      {/* <h2 className="heading">
         <button onClick={() => navigate("/dashboard")}>Back</button>Courses Page
-      </h2>
-      <div className="add-course-card" onClick={handleAddCourse}>
-        <div className="icon-container">
-        </div>
-        <div className="plus-sign">+</div>
-        <p>Add Course</p>
-      </div>
-      <div className="courses-grid">
+      </h2> */}
+      <div
+        className="courses-grid"
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '16px',
+          alignItems: 'flex-start',
+        }}
+      >
         {courseList.map((course, index) => {
           const randomIcon = icons[Math.floor(Math.random() * icons.length)];
           return (
@@ -80,11 +81,16 @@ const CoursesPage = ({ courses = [] }) => {
                 <h1 className="course-title">{course.name}</h1>
                 <p className="reg-time">Registered on: {course.time}</p>
                 <p className="credit-hours">{course.creditHours}</p>
-                <p className="doc-count">  {course.docCount} slides</p>
+                <p className="doc-count">{course.docCount} slides</p>
               </div>
             </div>
           );
         })}
+        <div className="add-course-card" onClick={handleAddCourse}>
+          <div className="icon-container"></div>
+          <div className="plus-sign">+</div>
+          <p>Add Course</p>
+        </div>
       </div>
       <input
         type="file"
